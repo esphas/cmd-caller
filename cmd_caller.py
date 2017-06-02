@@ -5,6 +5,8 @@ import subprocess
 import sublime
 import sublime_plugin
 
+CmdCallerSettings = 'cmd_caller.sublime-settings'
+
 # execute one line of command
 class CmdCallerCommand(sublime_plugin.WindowCommand):
   Prefix         = '[CmdCaller]'
@@ -36,13 +38,27 @@ class CmdCallerCommand(sublime_plugin.WindowCommand):
     subprocess.Popen(cmd)
 
 
+# run specific command
 class CmdCallerSpecCommand(sublime_plugin.WindowCommand):
   def run(self, app):
-    cmd = sublime.load_settings('cmd_caller.sublime-settings').get('apps')[app]['cmd']
+    cmd = sublime.load_settings(CmdCallerSettings).get('apps')[app]['cmd']
     self.window.run_command('cmd_caller', {'cmd': cmd})
 
 
+# run default command
 class CmdCallerDefaultCommand(sublime_plugin.WindowCommand):
   def run(self):
-    dft = sublime.load_settings('cmd_caller.sublime-settings').get('default')
+    dft = sublime.load_settings(CmdCallerSettings).get('default')
     self.window.run_command('cmd_caller_spec', {'app': dft})
+
+
+# run selected command
+class CmdCallerListCommand(sublime_plugin.WindowCommand):
+  def run(self):
+    items = list(sublime.load_settings(CmdCallerSettings).get('apps').keys())
+    self.window.show_quick_panel(items, lambda idx: self.on_select(items, idx))
+
+  def on_select(self, items, idx):
+    if idx < 0:
+      return
+    self.window.run_command('cmd_caller_spec', {'app': items[idx]})

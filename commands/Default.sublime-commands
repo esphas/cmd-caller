@@ -3,10 +3,8 @@
     "caption": "Cmd Caller: Default Action",
     "command": "cmd_caller_default"
   },
-/* TODO
   {
     "caption": "Cmd Caller: App List",
     "command": "cmd_caller_list"
   }
-*/
 ]

@@ -2,5 +2,9 @@
   {
     "keys": ["ctrl+shift+x"],
     "command": "cmd_caller_default"
+  },
+  {
+    "keys": ["ctrl+shift+,"],
+    "command": "cmd_caller_list"
   }
 ]
