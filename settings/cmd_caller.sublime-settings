@@ -1,0 +1,13 @@
+{
+  "default": "CMD",
+  "apps": {
+    "CMD": {
+      "name": "Run cmd.exe",
+      "cmd": "cmd.exe /s /k pushd \"%V\""
+    },
+    "PowerShell": {
+      "name": "Run PowerShell",
+      "cmd": "powershell.exe -noexit -command Set-Location -literalPath '%V'"
+    }
+  }
+}
