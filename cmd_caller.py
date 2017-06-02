@@ -10,7 +10,7 @@ class CmdCallerCommand(sublime_plugin.WindowCommand):
   Prefix         = '[CmdCaller]'
   BufferUnsaved  = 'Current buffer has not been saved, will use default PWD.'
   InvalidCommand = 'Invalid argument: cmd should be string or array of strings.'
-  DefaultPWD = '.'
+  DefaultPWD     = '.'
 
   def run(self, cmd):
     # get directory of current view, if it exists
