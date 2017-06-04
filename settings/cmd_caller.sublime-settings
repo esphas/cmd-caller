@@ -8,6 +8,10 @@
     "PowerShell": {
       "name": "Run PowerShell",
       "cmd": "powershell.exe -noexit -command Set-Location -literalPath '%V'"
+    },
+    "explorer": {
+      "name": "Open Explorer",
+      "cmd": "explorer.exe \"%V\""
     }
   }
 }
