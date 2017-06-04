@@ -6,19 +6,33 @@ import sublime
 import sublime_plugin
 
 CmdCallerSettings = 'cmd_caller.sublime-settings'
+Prefix            = '[CmdCaller]'
+BufferUnsaved     = 'Current buffer has not been saved, will use default PWD.'
+InvalidCommand    = 'Invalid argument: cmd should be string or array of strings.'
+DefaultPWD        = '.'
+
+# append text to view
+class AppendTextCommand(sublime_plugin.TextCommand):
+  def run(self, edit, text):
+    self.view.insert(edit, self.view.size(), text)
 
 # execute one line of command
 class CmdCallerCommand(sublime_plugin.WindowCommand):
-  Prefix         = '[CmdCaller]'
-  BufferUnsaved  = 'Current buffer has not been saved, will use default PWD.'
-  InvalidCommand = 'Invalid argument: cmd should be string or array of strings.'
-  DefaultPWD     = '.'
+
+  # display output message
+  def output(self, message):
+    message = Prefix + ' ' + message + '\n'
+    panel = self.window.find_output_panel('cmd-caller')
+    if not panel:
+      panel = self.window.create_output_panel('cmd-caller')
+    panel.run_command('append_text', {'text': message})
+    self.window.run_command('show_panel', {'panel': 'output.cmd-caller'})
 
   def run(self, cmd):
     # get directory of current view, if it exists
     view = self.window.active_view()
-    if view.file_name() == None:
-      sublime.error_message(Prefix + ' ' + BufferUnsaved)
+    if not view.file_name():
+      self.output(BufferUnsaved)
       pwd = DefaultPWD
     else:
       pwd = os.path.dirname(view.file_name())
@@ -27,10 +41,10 @@ class CmdCallerCommand(sublime_plugin.WindowCommand):
       try:
         cmd = ' '.join(cmd)
       except TypeError as e:
-        sublime.error_message(Prefix + ' ' + InvalidCommand)
+        self.output(InvalidCommand)
         return
     elif not isinstance(cmd, str):
-      sublime.error_message(Prefix + ' ' + InvalidCommand)
+      self.output(InvalidCommand)
       return
     # replace variables
     cmd = cmd.replace('%V', pwd)
