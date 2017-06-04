@@ -1,5 +1,5 @@
 {
-  "default": "CMD",
+  "default": "PowerShell",
   "apps": {
     "CMD": {
       "name": "Run cmd.exe",
