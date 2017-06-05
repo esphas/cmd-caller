@@ -72,7 +72,7 @@ class CmdCallerListCommand(CmdCaller):
   def run(self):
     apps = self.get_settings('apps')
     self.keys = list(apps.keys())
-    items = list(apps[key]['name'] for key in self.keys)
+    items = list(apps[key]['name'] if 'name' in apps[key] else key for key in self.keys)
     self.window.show_quick_panel(items, self.on_select)
 
   def on_select(self, idx):
