@@ -1,0 +1,61 @@
+[
+  {
+    "caption": "Tools",
+    "mnemonic": "T",
+    "id": "tools",
+    "children": [
+      {
+        "caption": "Cmd Caller",
+        "children": [
+          {
+            "caption": "Run Default Cmd",
+            "command": "cmd_caller_default"
+          },
+          {
+            "caption": "Select Cmd to Run",
+            "command": "cmd_caller_list"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "caption": "Preferences",
+    "mnemonic": "n",
+    "id": "preferences",
+    "children": [
+      {
+        "caption": "Package Settings",
+        "mnemonic": "P",
+        "id": "package-settings",
+        "children": [
+          {
+            "caption": "Cmd Caller",
+            "children": [
+              {
+                "caption": "Settings",
+                "command": "edit_settings",
+                "args": {
+                  "base_file": "${packages}/cmd-caller/settings/cmd_caller.sublime-settings",
+                  "default": "{\n\t$0\n}\n"
+                }
+              },
+              {
+                "caption": "Key Bindings",
+                "command": "edit_settings",
+                "args": {
+                  "base_file": "${packages}/cmd-caller/keybinds/Default (${platform}).sublime-keymap",
+                  "default": "{\n\t$0\n}\n"
+                }
+              },
+              {
+                "caption": "Readme",
+                "command": "cmd_caller_readme"
+              },
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "caption": "Cmd Caller: Default Action",
+    "command": "cmd_caller_default"
+  },
+  {
+    "caption": "Cmd Caller: App List",
+    "command": "cmd_caller_list"
+  },
+  {
+    "caption": "Preferences: Cmd Caller: Settings",
+    "command": "edit_settings",
+    "args": {
+      "base_file": "${packages}/cmd-caller/settings/cmd_caller.sublime-settings",
+      "default": "{\n\t$0\n}\n"
+    }
+  },
+  {
+    "caption": "Preferences: Cmd Caller: Key Bindings",
+    "command": "edit_settings",
+    "args": {
+      "base_file": "${packages}/cmd-caller/keybinds/Default (${platform}).sublime-keymap",
+      "default": "{\n\t$0\n}\n"
+    }
+  },
+  {
+    "caption": "Cmd Caller: Readme",
+    "command": "cmd_caller_readme"
+  },
+]
