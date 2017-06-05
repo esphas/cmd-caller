@@ -1,6 +1,7 @@
 
 import os.path
 import subprocess
+import shlex
 
 import sublime
 import sublime_plugin
@@ -48,7 +49,10 @@ class CmdCaller(sublime_plugin.WindowCommand):
     cmd = sublime.expand_variables(cmd, nvars)
     # exec
     try:
-      subprocess.Popen(cmd)
+      if sublime.platform() == "windows":
+        subprocess.Popen(cmd)
+      else:
+        subprocess.Popen(shlex.split(cmd))
     except FileNotFoundError:
       self.error('Cannot execute command', cmd)
 
