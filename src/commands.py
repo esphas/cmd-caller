@@ -33,13 +33,6 @@ class CmdCaller(sublime_plugin.WindowCommand):
 
   # run cmd
   def run_with_cmd(self, cmd):
-    # get directory of current view, if it exists
-    view = self.window.active_view()
-    if not view.file_name():
-      self.output('Current buffer has not been saved, will use default PWD')
-      pwd = '.'
-    else:
-      pwd = os.path.dirname(view.file_name())
     # cmd: [str] and [list of str]
     if isinstance(cmd, list):
       cmd = ' '.join(str(c) for c in cmd)
@@ -47,7 +40,12 @@ class CmdCaller(sublime_plugin.WindowCommand):
       self.error('Invalid argument: cmd should be a string or an array', cmd)
       return
     # replace variables
-    cmd = cmd.replace('%V', pwd)
+    disir = ["file", "file_name", "file_base_name", "file_extension", "file_path", "folder", "project_base_name"]
+    dvars = self.window.extract_variables()
+    nvars = {}
+    for key in disir:
+      nvars[key] = dvars[key]
+    cmd = sublime.expand_variables(cmd, nvars)
     # exec
     try:
       subprocess.Popen(cmd)
