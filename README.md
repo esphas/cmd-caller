@@ -57,3 +57,5 @@ git clone git@github.com:esphas/cmd-caller.git
 #### Compatibility
 
 This plugin is made on Windows, and should work on Linux and OSX, though not yet tested.
+
+But the default settings are Windows only.
