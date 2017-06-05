@@ -13,4 +13,8 @@ def get(key, default = None):
     _package_settings = sublime.load_settings('cmd_caller.sublime-settings')
     if not _package_settings:
       return default
-  return _package_settings.get(key, default)
+    _package_settings = _package_settings.get(sublime.platform())
+  if key in _package_settings:
+    return _package_settings[key]
+  else:
+    return default

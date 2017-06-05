@@ -1,17 +1,37 @@
 {
-  "default": "PowerShell",
-  "apps": {
-    "CMD": {
-      "name": "Run cmd.exe",
-      "cmd": "cmd.exe /s /k pushd \"${file_path}\""
-    },
-    "PowerShell": {
-      "name": "Run PowerShell",
-      "cmd": "powershell.exe -noexit -command Set-Location -literalPath '${file_path}'"
-    },
-    "explorer": {
-      "name": "Open Explorer",
-      "cmd": "explorer.exe \"${file_path}\""
+  "windows": {
+    "default": "PowerShell",
+    "apps": {
+      "CMD": {
+        "name": "Run cmd.exe",
+        "cmd": "cmd.exe /s /k pushd \"${file_path}\""
+      },
+      "PowerShell": {
+        "name": "Run PowerShell",
+        "cmd": "powershell.exe -noexit -command Set-Location -literalPath '${file_path}'"
+      },
+      "explorer": {
+        "name": "Open Explorer",
+        "cmd": "explorer.exe \"${file_path}\""
+      },
+    }
+  },
+  "linux": {
+    "default": "Bash",
+    "apps": {
+      "Bash": {
+        "name": "Bash Here",
+        "cmd": "(cd \"${file_path}\"; bash)"
+      },
+    }
+  },
+  "osx": {
+    "default": "Bash",
+    "apps": {
+      "Bash": {
+        "name": "Bash Here",
+        "cmd": "(cd \"${file_path}\"; bash)"
+      },
     }
   }
 }
