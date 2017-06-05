@@ -44,7 +44,7 @@ class CmdCaller(sublime_plugin.WindowCommand):
     dvars = self.window.extract_variables()
     nvars = {}
     for key in disir:
-      nvars[key] = dvars[key]
+      nvars[key] = dvars[key] if key in dvars else ''
     cmd = sublime.expand_variables(cmd, nvars)
     # exec
     try:

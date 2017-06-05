@@ -3,20 +3,20 @@
 
 A [Sublime Text 3](http://www.sublimetext.com) plugin to execute predefined commands conveniently.
 
-#### Key Bindings
+### Key Bindings
 By default, Cmd Caller binds `Ctrl+Shift+X` for quickly executing default command, and `Ctrl+Shift+,` for opening a panel to select a command to execute.
 
 Key Bindings are accessed via the `Preferences` > `Package settings` > `Cmd Caller` menu.
 
-#### Settings
+### Settings
 Settings are accessed via the `Preferences` > `Package settings` > `Cmd Caller` menu.
 
-##### default command
+#### default command
 `"default": "KEY_TO_APP"`
 
 Default command should be set to the key of disired command.
 
-##### apps
+#### apps
 
 Apps are predefined commands.
 
@@ -45,16 +45,16 @@ Following variables in `"cmd"` will be expanded.
 `${folder}`            | current added folder in project, full path
 `${project_base_name}` | name of current project
 
-#### Installation
+### Installation
 
-##### Manual Installation
-Just clone this repository to your Sublime Text packages directory.
+#### Manual Installation
+Start Sublime Text, open package folder via the `Preferences`>`Browse Packages...` menu, and execute git clone there.
 
 ```
 git clone git@github.com:esphas/cmd-caller.git
 ```
 
-#### Compatibility
+### Compatibility
 
 This plugin is made on Windows, and should work on Linux and OSX, though not yet tested.
 

@@ -25,13 +25,4 @@
       },
     }
   },
-  "osx": {
-    "default": "Bash",
-    "apps": {
-      "Bash": {
-        "name": "Bash Here",
-        "cmd": "(cd \"${file_path}\"; bash)"
-      },
-    }
-  }
 }
