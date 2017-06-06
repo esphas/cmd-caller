@@ -3,15 +3,15 @@
     "default": "PowerShell",
     "apps": {
       "CMD": {
-        "name": "Run cmd.exe",
+        "name": "Run cmd.exe Here",
         "cmd": "cmd.exe /s /k pushd \"${file_path}\""
       },
       "PowerShell": {
-        "name": "Run PowerShell",
+        "name": "Run PowerShell Here",
         "cmd": "powershell.exe -noexit -command Set-Location -literalPath '${file_path}'"
       },
       "explorer": {
-        "name": "Open Explorer",
+        "name": "Open Explorer Here",
         "cmd": "explorer.exe \"${file_path}\""
       },
     }
