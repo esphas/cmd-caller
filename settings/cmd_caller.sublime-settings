@@ -21,7 +21,7 @@
     "apps": {
       "Bash": {
         "name": "Bash Here",
-        "cmd": "(cd \"${file_path}\"; bash)"
+        "cmd": "gnome-terminal --working-directory=${file_path}"
       },
     }
   },
