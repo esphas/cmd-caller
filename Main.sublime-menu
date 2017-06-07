@@ -34,24 +34,23 @@
             "children": [
               {
                 "caption": "Settings",
-                "command": "edit_settings",
-                "args": {
-                  "base_file": "${packages}/cmd-caller/settings/cmd_caller.sublime-settings",
-                  "default": "{\n\t$0\n}\n"
-                }
+                "command": "cmd_caller_edit_settings"
               },
               {
                 "caption": "Key Bindings",
-                "command": "edit_settings",
-                "args": {
-                  "base_file": "${packages}/cmd-caller/keybinds/Default (${platform}).sublime-keymap",
-                  "default": "{\n\t$0\n}\n"
-                }
+                "command": "cmd_caller_edit_key_bindings"
               },
               {
-                "caption": "Readme",
-                "command": "cmd_caller_readme"
+                "caption": "-"
               },
+              {
+                "caption": "Show Logs",
+                "command": "cmd_caller_load_logs"
+              },
+              {
+                "caption": "Show Last Logs",
+                "command": "cmd_caller_load_last_logs"
+              }
             ]
           }
         ]

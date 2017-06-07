@@ -9,22 +9,18 @@
   },
   {
     "caption": "Preferences: Cmd Caller: Settings",
-    "command": "edit_settings",
-    "args": {
-      "base_file": "${packages}/cmd-caller/settings/cmd_caller.sublime-settings",
-      "default": "{\n\t$0\n}\n"
-    }
+    "command": "cmd_caller_edit_settings"
   },
   {
     "caption": "Preferences: Cmd Caller: Key Bindings",
-    "command": "edit_settings",
-    "args": {
-      "base_file": "${packages}/cmd-caller/keybinds/Default (${platform}).sublime-keymap",
-      "default": "{\n\t$0\n}\n"
-    }
+    "command": "cmd_caller_edit_key_bindings"
   },
   {
-    "caption": "Cmd Caller: Readme",
-    "command": "cmd_caller_readme"
+    "caption": "Cmd Caller: Show Logs",
+    "command": "cmd_caller_load_logs"
   },
+  {
+    "caption": "Cmd Caller: Show Last Logs",
+    "command": "cmd_caller_load_last_logs"
+  }
 ]

@@ -1,9 +1,13 @@
 
 # Cmd Caller
 
+from .support import (
+  log,
+  CmdCallerLoadLogsCommand, CmdCallerLoadLastLogsCommand)
+
 from .commands import (
   AppendTextCommand,
   CmdCallerDefaultCommand, CmdCallerListCommand)
 
-from .support import (
-  CmdCallerReadmeCommand)
+from .settings import (
+  CmdCallerEditSettingsCommand, CmdCallerEditKeyBindingsCommand)

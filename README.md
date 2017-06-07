@@ -27,7 +27,11 @@ Key Bindings are accessed via the `Preferences` > `Package settings` > `Cmd Call
 Settings are accessed via the `Preferences` > `Package settings` > `Cmd Caller` menu.
 
 ### default
-`"default": "KEY_TO_APP"`
+```json
+{
+  "default": "KEY_TO_APP"
+}
+```
 
 `"KEY_TO_APP"` should be set to the key of app that `Default Action` will call.
 
@@ -84,3 +88,8 @@ Following variables in `"cmd"` will be expanded.
 This plugin is tested campatible with windows(`Windows 10 1703 Build 15063`) and linux(`Ubuntu 16.04.2 LTS`).
 
 No commands(apps) are predefined for osx, although the plugin should not face compatibility problems with osx.
+
+## Issues
+If you find errors in the plugin, please run `Show Logs` command via Command Palette or `Preferences` > `Package settings` > `Cmd Caller` menu, and [open a new issue](https://github.com/esphas/cmd-caller/issues/new) with the log file content.
+
+The `Show Last Logs` command is for logs in last sublime session.
